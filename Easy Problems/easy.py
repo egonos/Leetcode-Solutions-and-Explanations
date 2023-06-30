@@ -1,12 +1,14 @@
-A Solution with Explanation
-egemenugur
-1
-1
-Jun 23, 2023
-Python3
-Array
-Greedy
-Intuition
+"""
+There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.
+
+You are giving candies to these children subjected to the following requirements:
+
+Each child must have at least one candy.
+Children with a higher rating get more candies than their neighbors.
+Return the minimum number of candies you need to have to distribute the candies to the children.
+
+
+
 Hi everyone! For this problem, the following algoritm works:
 
 Assign 1 candy for each child.
@@ -39,6 +41,7 @@ Since 5 is greater than 2 we update the candy at index 3 from 4 to 2 which viola
 The time complexity is O(n) {from looping} and the space complexity is also O(n) {because of the candies array}
 
 I hope this explanation is helpful.
+"""
 
 class Solution:
     def candy(self, ratings: List[int]) -> int:
