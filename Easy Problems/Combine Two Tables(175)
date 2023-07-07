@@ -1,0 +1,7 @@
+/*
+Intuition
+Hi everybody! For this problem, I've joined two tables by using left join to handle 'NULL' case and common column personId then returned the result from this merged table.
+*/
+
+
+select p.firstName, p.lastName,a.city,a.state from Person p left join Address a on a.personId = p.personId;
