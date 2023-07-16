@@ -1,5 +1,5 @@
 /*
-Hi everyone. Including zero count salary category in the result is the most challenging part.
+Hi everyone. Including  salary category having zero count in the result is the most challenging part.
 If our duty is only finding the count of the salary categories, we could use the following query (my initial solution by the way):
 */
 
