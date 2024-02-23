@@ -6,9 +6,14 @@ Hi everyone! For this problem, I used remove for inplace replacement. To use it 
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        pointer = 1
-        while pointer < len(nums): 
-            if nums[pointer-1] == nums[pointer]: nums.remove(nums[pointer])
-            else: pointer+=1
+        if len(nums) == 1: return 1
 
-        return pointer
+        pointer = 0
+        while pointer < len(nums):
+            if pointer < len(nums) -1 and nums[pointer] == nums[pointer+1]:
+                nums.pop(pointer + 1)
+
+            else:
+                pointer +=1
+
+        return len(nums)
