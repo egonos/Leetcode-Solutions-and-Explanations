@@ -46,14 +46,17 @@ This code has a time complexity of O(n) {from looping} and space complexity of O
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        left_accumulation = [1] * n
-        right_accumulation = [1]*n
-
-        for i in range(1,n):
-            left_accumulation[i] = left_accumulation[i-1]*nums[i-1]
-        for i in range(n-2,-1,-1):
-            right_accumulation[i] = nums[i+1]*right_accumulation[i+1]
-
-        return [i*j for i,j in zip(left_accumulation,right_accumulation)]
         
+        lefts,rights = [1]*len(nums),[1]* len(nums)
+        for i in range(1,len(nums)):
+            lefts[i] = lefts[i-1] * nums[i-1]
+
+        for i in range(len(nums)-2,-1,-1):
+            rights[i] = rights[i+1] * nums[i+1]
+
+        final = []
+        for i in range(len(lefts)):
+            final.append(lefts[i] * rights[i])
+
+        return final
+            
