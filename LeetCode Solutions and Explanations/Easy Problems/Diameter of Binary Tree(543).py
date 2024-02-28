@@ -14,16 +14,19 @@ Space Complexity: O(n)
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.diameter = 0
-        def compute_diameter(node):
-            if not node: return 0
-            left = compute_diameter(node.left)
-            right = compute_diameter(node.right)
 
-            self.diameter = max(self.diameter,left+right)
+        self.max_depth = 0
 
-            return max(left,right)+1
+        def dfs(root):
+            if not root:
+                return 0
 
-        compute_diameter(root)
+            leftdepth = dfs(root.left)
+            rightdepth = dfs(root.right)
 
-        return self.diameter
+            self.max_depth = max(self.max_depth, leftdepth + rightdepth)
+            return max(leftdepth,rightdepth) + 1
+
+        dfs(root)
+
+        return self.max_depth
